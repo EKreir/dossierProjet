@@ -26,11 +26,6 @@ $router->add('/create-user-submit', function() {
     $userController->createUser();
 });
 
-$router->add('/success', function() {
-    echo "<h1>Utilisateur créé avec succès !</h1>";
-    echo '<a href="/">Retour à l\'accueil</a>';
-});
-
 // Route pour afficher les horaires
 $router->add('/showHours', function() {
     $openingHoursController = new OpeningHoursController();
@@ -41,11 +36,6 @@ $router->add('/showHours', function() {
 $router->add('/updateHours', function() {
     $openingHoursController = new OpeningHoursController();
     $openingHoursController->updateHours();
-});
-
-$router->add('/showHours&success=true', function() {
-    echo "<h1>Horaires mis à jour avec succès !</h1>";
-    echo '<a href="/">Retour à l\'accueil</a>';
 });
 
 // Dispatcher la requête
