@@ -18,6 +18,7 @@ switch ($action) {
 
     case 'success':
         echo "<h1>Utilisateur créé avec succès !</h1>";
+        echo "<a href='index.php?action=createUserForm'>Retour</a>";
         break;
 
     default:
