@@ -29,7 +29,7 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-    <button type="submit">Enregistrer les modifications</button>
+    <button type="submit" class="btn btn-primary">Enregistrer les modifications</button>
 </form>
 
 <?php include __DIR__ . '/../template/footer.php'; ?>
