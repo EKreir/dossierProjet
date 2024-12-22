@@ -1,7 +1,7 @@
 <?php include __DIR__ . '/../template/header.php'; ?>
 
 <h1>Créer un utilisateur</h1>
-<form action="index.php?action=createUser" method="POST">
+<form action="/create-user-submit" method="POST">
     <label for="username">Nom d'utilisateur :</label>
     <input type="text" id="username" name="username" required>
 
