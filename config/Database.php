@@ -4,9 +4,9 @@ use PDO;
 
 class Database {
     private $host = 'localhost';
-    private $dName = 'vet_clinic';
-    private $username = 'root';
-    private $password = '';
+    private $dName = 'arcadia';
+    private $username = 'eliess';
+    private $password = 'Eliess2001#@!';
     public $conn;
 
     public function getConnection() {
