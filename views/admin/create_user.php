@@ -1,4 +1,4 @@
-<?php require_once __DIR__ . '/../templates/header.php'; ?>
+<?php include __DIR__ . '/../template/header.php'; ?>
 
 <h1>Créer un utilisateur</h1>
 <form action="/public/index.php?action=createUser" method="POST">
@@ -17,4 +17,4 @@
     <button type="submit">Créer</button>
 </form>
 
-<?php require_once __DIR__ . '/../templates/footer.php'; ?>
+<?php include __DIR__ . '/../template/footer.php'; ?>
