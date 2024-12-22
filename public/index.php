@@ -2,6 +2,8 @@
 
 require_once __DIR__ . '/../config/Database.php';
 require_once __DIR__ . '/../controllers/UserController.php';
+require_once __DIR__ . '/../controllers/OpeningHoursController.php';
+require_once __DIR__ . '/../models/OpeningHours.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../config/Router.php';
 
@@ -12,6 +14,7 @@ $router = new Router();
 $router->add('/', function() {
     echo "<h1>Bienvenue sur l'application !</h1>";
     echo '<a href="/create-user">Créer un utilisateur</a>';
+    echo '<br><a href="/showHours">Gérer les horaires d\'ouverture</a>';
 });
 
 $router->add('/create-user', function() {
@@ -25,6 +28,23 @@ $router->add('/create-user-submit', function() {
 
 $router->add('/success', function() {
     echo "<h1>Utilisateur créé avec succès !</h1>";
+    echo '<a href="/">Retour à l\'accueil</a>';
+});
+
+// Route pour afficher les horaires
+$router->add('/showHours', function() {
+    $openingHoursController = new OpeningHoursController();
+    $openingHoursController->showHours();
+});
+
+// Route pour mettre à jour les horaires
+$router->add('/updateHours', function() {
+    $openingHoursController = new OpeningHoursController();
+    $openingHoursController->updateHours();
+});
+
+$router->add('/showHours&success=true', function() {
+    echo "<h1>Horaires mis à jour avec succès !</h1>";
     echo '<a href="/">Retour à l\'accueil</a>';
 });
 

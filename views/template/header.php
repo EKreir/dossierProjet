@@ -9,6 +9,6 @@
 </head>
 <body>
     <header>
-        <h1>Création de comptes du personnel</h1>
+        <h1>Création administration</h1>
     </header>
     <main>
