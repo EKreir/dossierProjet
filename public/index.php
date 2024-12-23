@@ -227,6 +227,11 @@ $router->add('/add-feeding', function() {
     $feedingController->addFeeding();
 });
 
+$router->add('/animal-consumptions', function() {
+    $feedingModel = new FeedingModel(); // Instancier le modèle
+    $feedingController = new FeedingController(new FeedingModel(), new Animal()); // Passer le modèle au contrôleur
+    $feedingController->listConsumptions();
+});
 
 // Dispatcher la requête
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

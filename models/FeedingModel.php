@@ -18,4 +18,22 @@ class FeedingModel {
         $stmt->execute([$animalId]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getAllConsumptions() {
+    $sql = "SELECT 
+                animals.name AS animal_name, 
+                animal_feedings.feed_date, 
+                animal_feedings.feed_time, 
+                animal_feedings.food_type, 
+                animal_feedings.quantity_kg
+            FROM animal_feedings 
+            INNER JOIN animals ON animal_feedings.animal_id = animals.id 
+            ORDER BY animal_feedings.feed_date DESC, animal_feedings.feed_time DESC";
+
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute();
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 }
