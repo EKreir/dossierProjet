@@ -186,6 +186,11 @@ $router->add('/edit-service', function() {
     $serviceController->editService();
 });
 
+$router->add('/edit-services', function() {
+    $serviceController = new ServiceController();
+    $serviceController->listService();
+});
+
 $router->add('/delete-service', function() {
     $serviceController = new ServiceController();
     $serviceController->deleteService();

@@ -1,6 +1,6 @@
 <?php include __DIR__ . '/../template/header.php'; ?>
 
-<h1>Modifier le service</h1>
+<h1>Modifier un Service</h1>
 
 <?php if (isset($errorMessage)): ?>
     <p style="color: red;"><?= htmlspecialchars($errorMessage) ?></p>
@@ -11,20 +11,14 @@
 <?php endif; ?>
 
 <!-- Formulaire de modification du service -->
-<form action="/edit-service?id=<?= $service['id'] ?>" method="POST" enctype="multipart/form-data">
-    <label for="name">Nom du service :</label>
-    <input type="text" name="name" id="name" value="<?= htmlspecialchars($service['name']) ?>" required>
-    <br>
-
-    <label for="description">Description :</label>
-    <textarea name="description" id="description" required><?= htmlspecialchars($service['description']) ?></textarea>
-    <br>
-
-    <label for="image">Image :</label>
-    <input type="file" name="image" id="image" accept="image/*">
-    <br>
-
-    <button type="submit">Modifier le service</button>
+<form action="/edit-service" method="GET">
+    <label for="service_id">Sélectionner un service à modifier :</label>
+    <select name="id" id="service_id">
+        <?php foreach ($services as $service) : ?>
+            <option value="<?= $service['id'] ?>"><?= htmlspecialchars($service['name']) ?></option>
+        <?php endforeach; ?>
+    </select>
+    <button type="submit">Modifier</button>
 </form>
 
 <a href="/list-services">Retour à la liste des services</a>

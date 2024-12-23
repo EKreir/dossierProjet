@@ -48,6 +48,15 @@ class ServiceController {
         }
     }
 
+    // Récupérer la liste des services pour l'employé
+    public function listService() {
+        // Récupérer tous les services existants
+        $services = $this->serviceModel->getAllServices();
+
+        // Passer la liste à la vue
+        require_once __DIR__ . '/../views/employe/edit_service.php';
+    }
+
     // Modifier un service
     public function editService() {
         $id = $_GET['id'] ?? null;
