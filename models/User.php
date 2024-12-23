@@ -11,7 +11,7 @@ class User {
     public function create($username, $password, $role) {
         try {
             // Valider le rôle
-            $validRoles = ['veterinarian', 'employee'];
+            $validRoles = ['veterinarian', 'employee', 'admin'];
             if (!in_array($role, $validRoles)) {
                 throw new Exception("Rôle invalide.");
             }
