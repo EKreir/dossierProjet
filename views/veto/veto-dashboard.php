@@ -1,37 +1,44 @@
-<?php include __DIR__ . '/../template/header.php'; ?>
+<?php include __DIR__ . '/../template/header.php';
+?>
 
-<div class="container">
-    <h1 class="text-center my-4">Tableau de Bord Vétérinaire</h1>
-
-    <div class="row">
-        <div class="col-md-4 mb-3">
-            <a href="#" class="btn btn-primary btn-block py-3 disabled">Consulter les rendez-vous</a>
-        </div>
-        <div class="col-md-4 mb-3">
-            <a href="#" class="btn btn-primary btn-block py-3 disabled">Gérer les traitements</a>
-        </div>
-        <div class="col-md-4 mb-3">
-            <a href="#" class="btn btn-primary btn-block py-3 disabled">Suivi des animaux malades</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/veto-dashboard">Espace Vétérinaire</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href=""></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=""></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href=""></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-danger" href="/logout">Se déconnecter</a>
+                </li>
+            </ul>
         </div>
     </div>
+</nav>
 
-    <div class="row">
-        <div class="col-md-4 mb-3">
-            <a href="#" class="btn btn-primary btn-block py-3 disabled">Examens médicaux</a>
-        </div>
-        <div class="col-md-4 mb-3">
-            <a href="#" class="btn btn-primary btn-block py-3 disabled">Historique des soins</a>
-        </div>
-        <div class="col-md-4 mb-3">
-            <a href="#" class="btn btn-primary btn-block py-3 disabled">Commandes de médicaments</a>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12 text-center mt-4">
-            <a href="/veto-dashboard" class="btn btn-secondary">Retour à l'accueil</a>
-        </div>
-    </div>
+<!-- Contenu principal de l'espace Employé -->
+<div class="container mt-4">
+    <h1>Bienvenue dans votre espace Employé</h1>
+    <p>Dans cet espace,</p>
+    
+    <h3>Actions disponibles</h3>
+    <ul>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+        <li><a href=""></a></li>
+    </ul>
 </div>
 
 <?php include __DIR__ . '/../template/footer.php'; ?>
