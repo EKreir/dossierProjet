@@ -41,6 +41,14 @@ $router->add('/login-submit', function() {
     $loginController->login();  // Appel de la méthode login du LoginController
 });
 
+// Route pour la déconnexion
+$router->add('/logout', function() {
+    session_start();
+    session_destroy();
+    header('Location: /login');
+    exit;
+});
+
 // Route pour afficher l'espace admin (dashboard)
 $router->add('/admin-dashboard', function() {
     require_once __DIR__ . '/../views/admin/admin-dashboard.php';  // Page du tableau de bord admin
