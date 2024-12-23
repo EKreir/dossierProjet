@@ -223,7 +223,7 @@ $router->add('/delete-service', function() {
 });
 
 $router->add('/add-feeding', function() {
-    $feedingController = new FeedingController(new FeedingModel($db), new Animal($db));
+    $feedingController = new FeedingController(new FeedingModel(), new Animal());
     $feedingController->addFeeding();
 });
 
