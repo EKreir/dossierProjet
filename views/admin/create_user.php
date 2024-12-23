@@ -27,7 +27,7 @@
         </select>
     </div>
     
-    <button type="submit" class="btn btn-primary">Créer l'utilisateur</button>
+    <button type="submit" class="btn btn-success">Créer l'utilisateur</button>
 </form>
 
 

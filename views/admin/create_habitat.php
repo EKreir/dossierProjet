@@ -23,7 +23,7 @@
         <label for="images">Image de l'habitat</label>
         <input type="file" name="images" id="images" class="form-control">
     </div>
-    <button type="submit" class="btn btn-primary">Créer l'habitat</button>
+    <button type="submit" class="btn btn-success">Créer l'habitat</button>
     <a href="/list-habitats" class="btn btn-secondary">Retour à la liste des habitats</a>
 </form>
 

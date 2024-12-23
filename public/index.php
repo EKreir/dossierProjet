@@ -5,10 +5,12 @@ require_once __DIR__ . '/../controllers/UserController.php';
 require_once __DIR__ . '/../controllers/OpeningHoursController.php';
 require_once __DIR__ . '/../controllers/HabitatController.php';
 require_once __DIR__ . '/../controllers/AnimalController.php';
+require_once __DIR__ . '/../controllers/ServiceController.php';  // Ajout du contrôleur Service
 require_once __DIR__ . '/../models/OpeningHours.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../models/Habitat.php';
 require_once __DIR__ . '/../models/Animal.php';
+require_once __DIR__ . '/../models/Service.php';  // Ajout du modèle Service
 require_once __DIR__ . '/../config/Router.php';
 
 // Initialiser le routeur
@@ -23,6 +25,7 @@ $router->add('/', function() {
     echo '<a href="/showHours">Gérer les horaires d\'ouverture</a><br>';
     echo '<a href="/list-habitats">Gérer les habitats</a><br>';
     echo '<a href="/list-animals">Gérer les animaux</a><br>';
+    echo '<a href="/list-services">Gérer les services</a><br>';  // Ajout du lien vers la gestion des services
 });
 
 // Routes utilisateurs
@@ -96,6 +99,32 @@ $router->add('/edit-animal', function() {
 $router->add('/delete-animal', function() {
     $animalController = new AnimalController();
     $animalController->deleteAnimal();
+});
+
+// Routes pour les services
+$router->add('/list-services', function() {
+    $serviceController = new ServiceController();
+    $serviceController->listServices();
+});
+
+$router->add('/create-service', function() {
+    $serviceController = new ServiceController();
+    $serviceController->createService();
+});
+
+$router->add('/create-service-submit', function() {
+    $serviceController = new ServiceController();
+    $serviceController->createService();
+});
+
+$router->add('/edit-service', function() {
+    $serviceController = new ServiceController();
+    $serviceController->editService();
+});
+
+$router->add('/delete-service', function() {
+    $serviceController = new ServiceController();
+    $serviceController->deleteService();
 });
 
 // Dispatcher la requête

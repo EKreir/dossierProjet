@@ -32,9 +32,10 @@
             <?php endforeach; ?>
         </select>
     </div>
-    <button type="submit" class="btn btn-primary">Créer l'animal</button>
+    <button type="submit" class="btn btn-success">Créer l'animal</button>
+    <a href="/list-animals" class="btn btn-secondary">Retour à la liste des animaux</a>
 </form>
 
-<a href="/list-animals" class="btn btn-secondary">Retour à la liste des animaux</a>
+
 
 <?php include __DIR__ . '/../template/footer.php'; ?>

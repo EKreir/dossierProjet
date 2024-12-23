@@ -38,6 +38,6 @@
     </tbody>
 </table>
 
-<a href="/create-animal" class="btn btn-primary">Créer un nouvel animal</a>
+<a href="/create-animal" class="btn btn-success">Créer un nouvel animal</a>
 
 <?php include __DIR__ . '/../template/footer.php'; ?>
