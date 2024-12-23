@@ -61,7 +61,10 @@ class Animal {
     // Récupérer tous les animaux
     public function getAllAnimals() {
         try {
-            $query = "SELECT * FROM animals";
+            $query = "
+        SELECT a.id, a.name, a.breed, a.image, h.name AS habitat
+        FROM animals a
+        LEFT JOIN habitats h ON a.habitat_id = h.id";
             $stmt = $this->conn->prepare($query);
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
