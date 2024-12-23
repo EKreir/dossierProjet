@@ -8,6 +8,22 @@ class User {
         $this->conn = $database->getConnection();
     }
 
+    public static function getUserByUsername($username) {
+        // On prépare la requête pour récupérer l'utilisateur basé sur le nom d'utilisateur
+        $db = Database::getInstance()->getConnection();
+        $stmt = $db->prepare("SELECT * FROM users WHERE username = :username LIMIT 1");
+        $stmt->bindParam(':username', $username, PDO::PARAM_STR);
+        $stmt->execute();
+
+        // Vérifier si l'utilisateur existe et retourner les données
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } else {
+            return null;  // Retourner null si l'utilisateur n'existe pas
+        }
+    }
+
+
     public function create($username, $password, $role) {
         try {
             // Valider le rôle
@@ -36,4 +52,5 @@ class User {
             return false;
         }
     }
+
 }

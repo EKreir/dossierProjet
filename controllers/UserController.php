@@ -46,6 +46,37 @@ class UserController {
         // Si ce n'est pas une requête POST, on affiche le formulaire de création d'utilisateur vide
         require_once __DIR__ . '/../views/admin/create_user.php';
     }
+    }
+
+    public function loginUser() {
+    // Récupérer les données du formulaire
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Vérifier si l'utilisateur existe dans la base de données
+    $user = User::getUserByUsername($username);
+    
+    if ($user && password_verify($password, $user['password'])) {
+        // L'utilisateur est authentifié, enregistrer la session
+        $_SESSION['user_id'] = $user['id'];
+        $_SESSION['username'] = $user['username'];
+        $_SESSION['role'] = $user['role'];  // Assurer que le rôle est dans la session
+        
+        // Rediriger l'admin vers la page du tableau de bord
+        if ($_SESSION['role'] === 'admin') {
+            header('Location: /admin-dashboard');
+            exit();
+        } else {
+            // Redirection vers une autre page selon le rôle (par exemple, employé)
+            header('Location: /employee-dashboard');
+            exit();
+        }
+    } else {
+        // Si l'authentification échoue
+        $errorMessage = "Identifiants incorrects.";
+        require_once __DIR__ . '/../views/login.php';
+    }
 }
+
 
 }

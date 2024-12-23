@@ -11,4 +11,25 @@
     <header>
         <h1>Création administration</h1>
     </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Zoo Management</a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav ml-auto">
+      <?php if (isset($_SESSION['role'])): ?>
+          <?php if ($_SESSION['role'] === 'admin'): ?>
+              <li class="nav-item"><a class="nav-link" href="/admin-dashboard">Espace Admin</a></li>
+              <li class="nav-item"><a class="nav-link" href="/logout">Déconnexion</a></li>
+          <?php elseif ($_SESSION['role'] === 'employee'): ?>
+              <li class="nav-item"><a class="nav-link" href="/employee-dashboard">Espace Employé</a></li>
+              <li class="nav-item"><a class="nav-link" href="/logout">Déconnexion</a></li>
+          <?php else: ?>
+              <li class="nav-item"><a class="nav-link" href="/logout">Déconnexion</a></li>
+          <?php endif; ?>
+      <?php else: ?>
+          <li class="nav-item"><a class="nav-link" href="/login">Se connecter</a></li>
+      <?php endif; ?>
+    </ul>
+  </div>
+</nav>
+
     <main>

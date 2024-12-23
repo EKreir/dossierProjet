@@ -5,12 +5,13 @@ require_once __DIR__ . '/../controllers/UserController.php';
 require_once __DIR__ . '/../controllers/OpeningHoursController.php';
 require_once __DIR__ . '/../controllers/HabitatController.php';
 require_once __DIR__ . '/../controllers/AnimalController.php';
-require_once __DIR__ . '/../controllers/ServiceController.php';  // Ajout du contrôleur Service
+require_once __DIR__ . '/../controllers/ServiceController.php';
+require_once __DIR__ . '/../controllers/LoginController.php';
 require_once __DIR__ . '/../models/OpeningHours.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../models/Habitat.php';
 require_once __DIR__ . '/../models/Animal.php';
-require_once __DIR__ . '/../models/Service.php';  // Ajout du modèle Service
+require_once __DIR__ . '/../models/Service.php';
 require_once __DIR__ . '/../config/Router.php';
 
 // Initialiser le routeur
@@ -18,14 +19,31 @@ $router = new Router();
 
 // Ajouter les routes
 
-// Accueil
+// Accueil (page d'accueil)
 $router->add('/', function() {
     echo "<h1>Bienvenue sur l'application Zoo !</h1>";
+    echo '<a href="/login">Se connecter</a><br>';
     echo '<a href="/create-user">Créer un utilisateur</a><br>';
     echo '<a href="/showHours">Gérer les horaires d\'ouverture</a><br>';
     echo '<a href="/list-habitats">Gérer les habitats</a><br>';
     echo '<a href="/list-animals">Gérer les animaux</a><br>';
     echo '<a href="/list-services">Gérer les services</a><br>';  // Ajout du lien vers la gestion des services
+});
+
+// Route de connexion
+$router->add('/login', function() {
+    require_once __DIR__ . '/../views/login.php'; // Page de connexion
+});
+
+// Route pour la soumission du formulaire de connexion
+$router->add('/login-submit', function() {
+    $loginController = new LoginController();
+    $loginController->login();  // Appel de la méthode login du LoginController
+});
+
+// Route pour afficher l'espace admin (dashboard)
+$router->add('/admin-dashboard', function() {
+    require_once __DIR__ . '/../views/admin/admin-dashboard.php';  // Page du tableau de bord admin
 });
 
 // Routes utilisateurs
