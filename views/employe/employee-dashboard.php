@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/edit-service">Modifier les services</a>
+                    <a class="nav-link" href="/edit-services">Modifier les services</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/"></a>
@@ -35,7 +35,7 @@
     
     <h3>Actions disponibles</h3>
     <ul>
-        <li><a href="/edit-service">Modifier les services</a></li>
+        <li><a href="/edit-services">Modifier les services</a></li>
         <li><a href="/"></a></li>
         <li><a href="/"></a></li>
     </ul>

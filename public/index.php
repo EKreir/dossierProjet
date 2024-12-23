@@ -181,9 +181,14 @@ $router->add('/create-service-submit', function() {
     $serviceController->createService();
 });
 
-$router->add('/edit-service', function() {
+$router->add('/edit-services', function() {
     $serviceController = new ServiceController();
     $serviceController->editService();
+});
+
+$router->add('/edit-service-submit', function() {
+    $serviceController = new ServiceController();
+    $serviceController->updateService();
 });
 
 $router->add('/edit-services', function() {
