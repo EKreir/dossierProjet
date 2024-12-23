@@ -33,8 +33,11 @@ class LoginController {
                 header('Location: /admin-dashboard');
             } elseif ($user['role'] === 'employee') {
                 header('Location: /employee-dashboard');
+            } elseif ($user['role'] === 'veterinarian') {
+                header('Location: /veto-dashboard');
             } else {
-                header('Location: /user-dashboard');
+                $errorMessage = "Rôle d'utilisateur non reconnu.";
+                require_once __DIR__ . '/../views/login.php';
             }
             exit;
         } else {

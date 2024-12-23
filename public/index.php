@@ -36,6 +36,11 @@ $employeePages = [
     '/add-feeding'
 ];
 
+// Définir les pages qui nécessitent un rôle "veterinary"
+$vetoPages = [
+    '/veto-dashboard'
+];
+
 // Vérification du rôle admin pour les pages sensibles
 $currentPage = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
@@ -50,6 +55,14 @@ if (in_array($currentPage, $adminPages)) {
 // Vérification pour les pages employee
 if (in_array($currentPage, $employeePages)) {
     if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'employee') {
+        header('Location: /login');
+        exit;
+    }
+}
+
+// Vérification pour les pages veterinary
+if (in_array($currentPage, $vetoPages)) {
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'veterinarian') {
         header('Location: /login');
         exit;
     }
@@ -93,6 +106,11 @@ $router->add('/admin-dashboard', function() {
 // Route pour afficher l'espace employé (dashboard)
 $router->add('/employee-dashboard', function() {
     require_once __DIR__ . '/../views/employe/employee-dashboard.php';  // Page du tableau de bord employé
+});
+
+// Route pour afficher l'espace vétérinaire (dashboard)
+$router->add('/veto-dashboard', function() {
+    require_once __DIR__ . '/../views/veto/veto-dashboard.php';
 });
 
 // Routes utilisateurs
