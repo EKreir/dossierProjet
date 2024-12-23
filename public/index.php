@@ -14,6 +14,29 @@ require_once __DIR__ . '/../models/Animal.php';
 require_once __DIR__ . '/../models/Service.php';
 require_once __DIR__ . '/../config/Router.php';
 
+// Démarrer la session
+session_start();
+
+// Définir les pages qui nécessitent un rôle "admin"
+$adminPages = [
+    '/admin-dashboard',
+    '/create-user',
+    '/showHours',
+    '/list-habitats',
+    '/list-animals',
+    '/list-services'
+];
+
+// Vérification du rôle admin pour les pages sensibles
+$currentPage = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+if (in_array($currentPage, $adminPages)) {
+    // Vérifier si l'utilisateur est connecté et s'il a le rôle "admin"
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+        header('Location: /login');
+        exit;
+    }
+}
+
 // Initialiser le routeur
 $router = new Router();
 
