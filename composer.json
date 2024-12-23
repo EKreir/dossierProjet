@@ -6,5 +6,8 @@
             "email": "ekreir97@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "mongodb/mongodb": "^1.20",
+        "phpmailer/phpmailer": "^6.9"
+    }
 }
