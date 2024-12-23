@@ -47,9 +47,8 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Enregistrer</button>
+        <a href="/employee-dashboard" class="btn btn-secondary mt-4">Retour</a>
     </form>
 </div>
-
-<a href="/employee-dashboard" class="btn btn-secondary mt-4">Retour</a>
 
 <?php include __DIR__ . '/../template/footer.php'; ?>
