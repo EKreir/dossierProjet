@@ -7,11 +7,13 @@ require_once __DIR__ . '/../controllers/HabitatController.php';
 require_once __DIR__ . '/../controllers/AnimalController.php';
 require_once __DIR__ . '/../controllers/ServiceController.php';
 require_once __DIR__ . '/../controllers/LoginController.php';
+require_once __DIR__ . '/../controllers/FeedingController.php';
 require_once __DIR__ . '/../models/OpeningHours.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../models/Habitat.php';
 require_once __DIR__ . '/../models/Animal.php';
 require_once __DIR__ . '/../models/Service.php';
+require_once __DIR__ . '/../models/FeedingModel.php';
 require_once __DIR__ . '/../config/Router.php';
 
 // Démarrer la session
@@ -30,7 +32,8 @@ $adminPages = [
 // Définir les pages qui nécessitent un rôle "employee"
 $employeePages = [
     '/employee-dashboard',
-    '/edit-services'
+    '/edit-services',
+    '/add-feeding'
 ];
 
 // Vérification du rôle admin pour les pages sensibles
@@ -200,6 +203,12 @@ $router->add('/delete-service', function() {
     $serviceController = new ServiceController();
     $serviceController->deleteService();
 });
+
+$router->add('/add-feeding', function() {
+    $feedingController = new FeedingController(new FeedingModel($db), new Animal($db));
+    $feedingController->addFeeding();
+});
+
 
 // Dispatcher la requête
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

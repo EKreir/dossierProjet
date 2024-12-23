@@ -13,7 +13,7 @@
                     <a class="nav-link" href="/edit-services">Modifier les services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/"></a>
+                    <a class="nav-link" href="/add-feeding">Consommation quotidienne</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/"></a>
@@ -36,7 +36,7 @@
     <h3>Actions disponibles</h3>
     <ul>
         <li><a href="/edit-services">Modifier les services</a></li>
-        <li><a href="/"></a></li>
+        <li><a href="/add-feeding">Consommation quotidienne</a></li>
         <li><a href="/"></a></li>
     </ul>
 </div>
