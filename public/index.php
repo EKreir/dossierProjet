@@ -27,11 +27,26 @@ $adminPages = [
     '/list-services'
 ];
 
+// Définir les pages qui nécessitent un rôle "employee"
+$employeePages = [
+    '/employee-dashboard',
+    '/edit-services'
+];
+
 // Vérification du rôle admin pour les pages sensibles
 $currentPage = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+// Vérification pour les pages admin
 if (in_array($currentPage, $adminPages)) {
-    // Vérifier si l'utilisateur est connecté et s'il a le rôle "admin"
     if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'admin') {
+        header('Location: /login');
+        exit;
+    }
+}
+
+// Vérification pour les pages employee
+if (in_array($currentPage, $employeePages)) {
+    if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'employee') {
         header('Location: /login');
         exit;
     }
@@ -46,11 +61,6 @@ $router = new Router();
 $router->add('/', function() {
     echo "<h1>Bienvenue sur l'application Zoo !</h1>";
     echo '<a href="/login">Se connecter</a><br>';
-    echo '<a href="/create-user">Créer un utilisateur</a><br>';
-    echo '<a href="/showHours">Gérer les horaires d\'ouverture</a><br>';
-    echo '<a href="/list-habitats">Gérer les habitats</a><br>';
-    echo '<a href="/list-animals">Gérer les animaux</a><br>';
-    echo '<a href="/list-services">Gérer les services</a><br>';  // Ajout du lien vers la gestion des services
 });
 
 // Route de connexion
@@ -75,6 +85,11 @@ $router->add('/logout', function() {
 // Route pour afficher l'espace admin (dashboard)
 $router->add('/admin-dashboard', function() {
     require_once __DIR__ . '/../views/admin/admin-dashboard.php';  // Page du tableau de bord admin
+});
+
+// Route pour afficher l'espace employé (dashboard)
+$router->add('/employee-dashboard', function() {
+    require_once __DIR__ . '/../views/employe/employee-dashboard.php';  // Page du tableau de bord employé
 });
 
 // Routes utilisateurs
