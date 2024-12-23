@@ -1,5 +1,7 @@
 <?php include __DIR__ . '/../template/header.php'; ?>
 
+<?php include __DIR__ . '/../template/navbar.php'; ?>
+
 <h1>Liste des habitats</h1>
 
 <?php if (isset($successMessage)): ?>

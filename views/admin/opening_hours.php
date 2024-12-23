@@ -1,5 +1,7 @@
 <?php include __DIR__ . '/../template/header.php'; ?>
 
+<?php include __DIR__ . '/../template/navbar.php'; ?>
+
 <h1>Modifier les horaires d'ouverture</h1>
 
 <?php if (isset($successMessage)): ?>

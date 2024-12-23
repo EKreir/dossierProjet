@@ -1,5 +1,6 @@
-<!-- Dans le fichier list_animals.php -->
 <?php include __DIR__ . '/../template/header.php'; ?>
+
+<?php include __DIR__ . '/../template/navbar.php'; ?>
 
 <h1>Liste des animaux</h1>
 
