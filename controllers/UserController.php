@@ -66,9 +66,13 @@ class UserController {
         if ($_SESSION['role'] === 'admin') {
             header('Location: /admin-dashboard');
             exit();
-        } else {
+        } elseif ($_SESSION['role'] === 'employee') {
             // Redirection vers une autre page selon le rôle (par exemple, employé)
             header('Location: /employee-dashboard');
+            exit();
+        } elseif ($_SESSION['role'] === 'veterinarian') {
+            // Redirection vers une autre page selon le rôle (par exemple, vétérinaire)
+            header('Location: /veto-dashboard');
             exit();
         }
     } else {
