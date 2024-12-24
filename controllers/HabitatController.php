@@ -2,9 +2,11 @@
 
 class HabitatController {
     private $habitatModel;
+    private $habitatReview;
 
     public function __construct() {
         $this->habitatModel = new Habitat();
+        $this->habitatReview = new HabitatReview();
     }
 
     // Afficher la liste des habitats
@@ -120,4 +122,53 @@ class HabitatController {
             echo "Une erreur est survenue lors de la suppression de l'habitat.";
         }
     }
+
+    // Ajouter un avis sur un habitat
+    public function addReview() {
+    session_start();
+    
+    // Vérifiez si un utilisateur est connecté
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: /login');
+        exit;
+    }
+
+    $userId = $_SESSION['user_id'];
+
+    // Vérifiez si l'utilisateur est un vétérinaire
+    $userModel = new User();
+    $user = $userModel->getUserById($userId);
+
+    if (!$user || $user['role'] !== 'veterinarian') {
+        die("Accès refusé : Vous devez être vétérinaire pour ajouter un avis.");
+    }
+
+    // Charger les habitats pour le formulaire
+    $habitats = $this->habitatModel->getAllHabitats();
+    $errorMessage = null;
+    $successMessage = null;
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $habitatId = $_POST['habitat_id'];
+        $reviewDate = $_POST['review_date'];
+        $reviewText = trim($_POST['review_text']);
+
+        if (empty($reviewText)) {
+            $errorMessage = "Le champ avis ne peut pas être vide.";
+        } else {
+            // Ajouter l'avis
+            $success = $this->habitatReview->addReview($habitatId, $userId, $reviewDate, $reviewText);
+
+            if ($success) {
+                $successMessage = "Avis ajouté avec succès.";
+            } else {
+                $errorMessage = "Une erreur est survenue lors de l'ajout de l'avis.";
+            }
+        }
+    }
+
+    // Charger la vue avec les messages et les habitats
+    require_once __DIR__ . '/../views/veto/add_habitat_review.php';
+}
+
 }

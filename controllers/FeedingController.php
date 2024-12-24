@@ -34,4 +34,11 @@ class FeedingController {
         $animals = $this->animalModel->getAllAnimals();
         require_once __DIR__ . '/../views/employe/add_feeding.php';
     }
+
+    public function listConsumptions() {
+    $feedingModel = new FeedingModel();
+    $consumptions = $feedingModel->getAllConsumptions();
+    require_once __DIR__ . '/../views/veto/animal_consumptions.php';
+}
+
 }

@@ -8,12 +8,15 @@ require_once __DIR__ . '/../controllers/AnimalController.php';
 require_once __DIR__ . '/../controllers/ServiceController.php';
 require_once __DIR__ . '/../controllers/LoginController.php';
 require_once __DIR__ . '/../controllers/FeedingController.php';
+require_once __DIR__ . '/../controllers/ReportController.php';
 require_once __DIR__ . '/../models/OpeningHours.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../models/Habitat.php';
 require_once __DIR__ . '/../models/Animal.php';
 require_once __DIR__ . '/../models/Service.php';
 require_once __DIR__ . '/../models/FeedingModel.php';
+require_once __DIR__ . '/../models/ReportModel.php';
+require_once __DIR__ . '/../models/HabitatReview.php';
 require_once __DIR__ . '/../config/Router.php';
 
 // Démarrer la session
@@ -33,12 +36,15 @@ $adminPages = [
 $employeePages = [
     '/employee-dashboard',
     '/edit-services',
-    '/add-feeding'
+    '/add-feeding',
+    '/add-animal-report',
 ];
 
 // Définir les pages qui nécessitent un rôle "veterinary"
 $vetoPages = [
-    '/veto-dashboard'
+    '/veto-dashboard',
+    '/animal-consumptions',
+    '/animal-reports',
 ];
 
 // Vérification du rôle admin pour les pages sensibles
@@ -223,10 +229,30 @@ $router->add('/delete-service', function() {
 });
 
 $router->add('/add-feeding', function() {
-    $feedingController = new FeedingController(new FeedingModel($db), new Animal($db));
+    $feedingController = new FeedingController(new FeedingModel(), new Animal());
     $feedingController->addFeeding();
 });
 
+$router->add('/animal-consumptions', function() {
+    $feedingModel = new FeedingModel();
+    $feedingController = new FeedingController(new FeedingModel(), new Animal());
+    $feedingController->listConsumptions();
+});
+
+$router->add('/animal-reports', function() {
+    $reportController = new ReportController();
+    $reportController->listReports();
+});
+
+$router->add('/add-animal-report', function() {
+    $reportController = new ReportController();
+    $reportController->addReport();
+});
+
+$router->add('/add-habitat-review', function() {
+    $habitatController = new HabitatController();
+    $habitatController->addReview();
+});
 
 // Dispatcher la requête
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

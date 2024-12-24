@@ -74,6 +74,14 @@ class Animal {
         }
     }
 
+    // Récupérer tous les animaux
+    public function getAllAnimal() {
+        $sql = "SELECT id, name FROM animals ORDER BY name ASC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     // Récupérer un animal par ID
     public function getAnimalById($id) {
         try {
