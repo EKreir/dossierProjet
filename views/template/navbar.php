@@ -21,6 +21,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/list-services">Gérer les services</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dashboard">Comptes rendus</a>
+                </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">

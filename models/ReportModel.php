@@ -27,17 +27,18 @@ class ReportModel {
     }
 
     // Ajouter un nouveau rapport
-    public function addReport($animalId, $reportDate, $healthStatus, $foodType, $foodQuantityKg) {
-        $sql = "INSERT INTO animal_reports (animal_id, report_date, health_status, food_type, food_quantity_kg)
-                VALUES (:animal_id, :report_date, :health_status, :food_type, :food_quantity_kg)";
+    public function addReport($animalId, $reportDate, $healthStatus, $foodType, $foodQuantityKg, $userId) {
+    $sql = "INSERT INTO animal_reports (animal_id, report_date, health_status, food_type, food_quantity_kg, user_id)
+            VALUES (:animal_id, :report_date, :health_status, :food_type, :food_quantity_kg, :user_id)";
 
-        $stmt = $this->conn->prepare($sql);
-        $stmt->bindParam(':animal_id', $animalId);
-        $stmt->bindParam(':report_date', $reportDate);
-        $stmt->bindParam(':health_status', $healthStatus);
-        $stmt->bindParam(':food_type', $foodType);
-        $stmt->bindParam(':food_quantity_kg', $foodQuantityKg);
+    $stmt = $this->conn->prepare($sql);
+    $stmt->bindParam(':animal_id', $animalId);
+    $stmt->bindParam(':report_date', $reportDate);
+    $stmt->bindParam(':health_status', $healthStatus);
+    $stmt->bindParam(':food_type', $foodType);
+    $stmt->bindParam(':food_quantity_kg', $foodQuantityKg);
+    $stmt->bindParam(':user_id', $userId);
 
-        return $stmt->execute();
-    }
+    return $stmt->execute();
+}
 }

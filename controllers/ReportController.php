@@ -25,7 +25,10 @@ class ReportController {
         $foodType = $_POST['food_type'];
         $foodQuantityKg = $_POST['food_quantity_kg'];
 
-        $success = $this->reportModel->addReport($animalId, $reportDate, $healthStatus, $foodType, $foodQuantityKg);
+        session_start();
+        $userId = $_SESSION['user_id'] ?? null;
+
+        $success = $this->reportModel->addReport($animalId, $reportDate, $healthStatus, $foodType, $foodQuantityKg, $userId);
 
         if ($success) {
             header('Location: /animal-reports');

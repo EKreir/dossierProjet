@@ -19,4 +19,21 @@ class HabitatReview {
     $stmt->bindParam(':review_text', $reviewText);
     return $stmt->execute();
 }
+
+public function getAllReviews() {
+    $sql = "SELECT 
+                habitats.name AS habitat_name, 
+                habitat_reviews.review_date, 
+                habitat_reviews.review_text, 
+                users.username AS vet_name
+            FROM habitat_reviews
+            INNER JOIN habitats ON habitat_reviews.habitat_id = habitats.id
+            INNER JOIN users ON habitat_reviews.user_id = users.id
+            WHERE users.role = 'veterinarian'
+            ORDER BY habitat_reviews.review_date DESC";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 }
