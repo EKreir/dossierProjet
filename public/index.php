@@ -8,12 +8,14 @@ require_once __DIR__ . '/../controllers/AnimalController.php';
 require_once __DIR__ . '/../controllers/ServiceController.php';
 require_once __DIR__ . '/../controllers/LoginController.php';
 require_once __DIR__ . '/../controllers/FeedingController.php';
+require_once __DIR__ . '/../controllers/ReportController.php';
 require_once __DIR__ . '/../models/OpeningHours.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../models/Habitat.php';
 require_once __DIR__ . '/../models/Animal.php';
 require_once __DIR__ . '/../models/Service.php';
 require_once __DIR__ . '/../models/FeedingModel.php';
+require_once __DIR__ . '/../models/ReportModel.php';
 require_once __DIR__ . '/../config/Router.php';
 
 // Démarrer la session
@@ -228,9 +230,19 @@ $router->add('/add-feeding', function() {
 });
 
 $router->add('/animal-consumptions', function() {
-    $feedingModel = new FeedingModel(); // Instancier le modèle
-    $feedingController = new FeedingController(new FeedingModel(), new Animal()); // Passer le modèle au contrôleur
+    $feedingModel = new FeedingModel();
+    $feedingController = new FeedingController(new FeedingModel(), new Animal());
     $feedingController->listConsumptions();
+});
+
+$router->add('/animal-reports', function() {
+    $reportController = new ReportController();
+    $reportController->listReports();
+});
+
+$router->add('/add-animal-report', function() {
+    $reportController = new ReportController();
+    $reportController->addReport();
 });
 
 // Dispatcher la requête

@@ -13,7 +13,7 @@
                     <a class="nav-link" href="/animal-consumptions">Consommation animale</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href=""></a>
+                    <a class="nav-link" href="/animal-reports">Rapports animaux</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href=""></a>
@@ -36,7 +36,7 @@
     <h3>Actions disponibles</h3>
     <ul>
         <li><a href="/animal-consumptions">Consommation animale</a></li>
-        <li><a href=""></a></li>
+        <li><a href="/animal-reports">Rapports animaux</a></li>
         <li><a href=""></a></li>
     </ul>
 </div>
