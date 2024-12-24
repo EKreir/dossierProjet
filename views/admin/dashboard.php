@@ -28,7 +28,7 @@
                         <td><?= htmlspecialchars($report['food_type']) ?></td>
                         <td><?= htmlspecialchars($report['food_quantity_kg']) ?> kg</td>
                         <td><?= htmlspecialchars($report['report_date']) ?></td>
-                        <td><?= htmlspecialchars($report['vet_username']) ?></td>
+                        <td><?= htmlspecialchars($report['vet_name']) ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

@@ -15,10 +15,13 @@ class ReportModel {
                     animal_reports.report_date, 
                     animal_reports.health_status, 
                     animal_reports.food_type, 
-                    animal_reports.food_quantity_kg
+                    animal_reports.food_quantity_kg,
+                    users.username AS vet_name
                 FROM animal_reports
                 INNER JOIN animals ON animal_reports.animal_id = animals.id
-                ORDER BY animal_reports.report_date DESC";
+            INNER JOIN users ON animal_reports.user_id = users.id
+            WHERE users.role = 'veterinarian'
+            ORDER BY animal_reports.report_date DESC";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
