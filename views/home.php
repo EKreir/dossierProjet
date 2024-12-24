@@ -6,7 +6,7 @@
     <section class="my-5">
         <h2>Présentation</h2>
         <p>Découvrez notre magnifique zoo, un lieu de découverte et d'aventures pour petits et grands !</p>
-        <img src="/public/images/zoo_overview.jpg" class="img-fluid" alt="Vue du zoo">
+        <img src="/images/logozoo.jpg" class="img-fluid" alt="Vue du zoo">
     </section>
 
     <!-- Habitats (statique) -->
@@ -34,19 +34,19 @@
         <h2>Nos animaux</h2>
         <div class="row">
             <div class="col-md-3">
-                <img src="/public/images/lion.jpg" class="img-fluid" alt="Lion">
+                <img src="/images/lion.jpg" class="img-fluid" alt="Lion">
                 <p>Lion</p>
             </div>
             <div class="col-md-3">
-                <img src="/public/images/zebra.jpg" class="img-fluid" alt="Zèbre">
+                <img src="/images/zebra.jpg" class="img-fluid" alt="Zèbre">
                 <p>Zèbre</p>
             </div>
             <div class="col-md-3">
-                <img src="/public/images/alligator.jpg" class="img-fluid" alt="Alligator">
+                <img src="/images/alligator.jpg" class="img-fluid" alt="Alligator">
                 <p>Alligator</p>
             </div>
             <div class="col-md-3">
-                <img src="/public/images/toucan.jpg" class="img-fluid" alt="Toucan">
+                <img src="/images/toucan.jpg" class="img-fluid" alt="Toucan">
                 <p>Toucan</p>
             </div>
         </div>
