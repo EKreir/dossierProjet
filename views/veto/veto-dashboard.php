@@ -16,7 +16,7 @@
                     <a class="nav-link" href="/animal-reports">Rapports animaux</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href=""></a>
+                    <a class="nav-link" href="/add-habitat-review">Avis des habitats</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -37,7 +37,7 @@
     <ul>
         <li><a href="/animal-consumptions">Consommation animale</a></li>
         <li><a href="/animal-reports">Rapports animaux</a></li>
-        <li><a href=""></a></li>
+        <li><a href="/add-habitat-review">Avis des habitats</a></li>
     </ul>
 </div>
 

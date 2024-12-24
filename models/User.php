@@ -23,6 +23,15 @@ class User {
         }
     }
 
+    // Récupérer un utilisateur par son ID
+    public function getUserById($id) {
+        $sql = "SELECT id, role FROM users WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
 
     public function create($username, $password, $role) {
         try {

@@ -16,6 +16,7 @@ require_once __DIR__ . '/../models/Animal.php';
 require_once __DIR__ . '/../models/Service.php';
 require_once __DIR__ . '/../models/FeedingModel.php';
 require_once __DIR__ . '/../models/ReportModel.php';
+require_once __DIR__ . '/../models/HabitatReview.php';
 require_once __DIR__ . '/../config/Router.php';
 
 // Démarrer la session
@@ -35,12 +36,15 @@ $adminPages = [
 $employeePages = [
     '/employee-dashboard',
     '/edit-services',
-    '/add-feeding'
+    '/add-feeding',
+    '/add-animal-report',
 ];
 
 // Définir les pages qui nécessitent un rôle "veterinary"
 $vetoPages = [
-    '/veto-dashboard'
+    '/veto-dashboard',
+    '/animal-consumptions',
+    '/animal-reports',
 ];
 
 // Vérification du rôle admin pour les pages sensibles
@@ -243,6 +247,11 @@ $router->add('/animal-reports', function() {
 $router->add('/add-animal-report', function() {
     $reportController = new ReportController();
     $reportController->addReport();
+});
+
+$router->add('/add-habitat-review', function() {
+    $habitatController = new HabitatController();
+    $habitatController->addReview();
 });
 
 // Dispatcher la requête
