@@ -32,6 +32,12 @@ class OpeningHoursController {
     }
 }
 
+// Récupérer les horaires d'ouverture pour les visiteurs
+    public function getPublicHours() {
+        $openingHoursModel = new OpeningHours();
+        return $openingHoursModel->getingAll();  // Récupérer les horaires sans afficher la vue admin
+    }
+
     // Mettre à jour les horaires d'ouverture
     public function updateHours() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {

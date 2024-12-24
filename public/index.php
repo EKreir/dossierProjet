@@ -10,6 +10,7 @@ require_once __DIR__ . '/../controllers/LoginController.php';
 require_once __DIR__ . '/../controllers/FeedingController.php';
 require_once __DIR__ . '/../controllers/ReportController.php';
 require_once __DIR__ . '/../controllers/AdminController.php';
+require_once __DIR__ . '/../controllers/PublicController.php';
 require_once __DIR__ . '/../models/OpeningHours.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../models/Habitat.php';
@@ -257,6 +258,12 @@ $router->add('/add-habitat-review', function() {
 $router->add('/dashboard', function() {
     $adminController = new AdminController();
     $adminController->dashboard();
+});
+
+// Route pour la page d'accueil publique
+$router->add('/home', function() {
+    $publicController = new PublicController();
+    $publicController->home();
 });
 
 
