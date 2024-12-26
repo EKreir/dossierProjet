@@ -16,7 +16,7 @@
                     <a class="nav-link" href="#habitats">Habitats</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#services">Services</a>
+                    <a class="nav-link" href="/services">Services</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#animals">Avis</a>

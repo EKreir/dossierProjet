@@ -266,6 +266,13 @@ $router->add('/home', function() {
     $publicController->home();
 });
 
+// Route pour la page des services
+$router->add('/services', function() {
+    $publicController = new PublicController();
+    $publicController->services(); // Appel de la méthode services
+});
+
+
 
 // Dispatcher la requête
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
