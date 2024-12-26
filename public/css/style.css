@@ -1,0 +1,196 @@
+/* Base Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #a8e063, #56ab2f) !important;
+    color: #3c403d; /* Gris foncé pour le texte */
+}
+
+.sticky-top {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    z-index: 1030 !important;
+}
+
+.navbar-logo {
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+
+
+.container {
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+}
+
+/* Header */
+h1 {
+    font-size: 2.5em !important;
+    color: #2c662d !important; /* Vert forêt */
+    margin-bottom: 20px !important;
+}
+
+h2 {
+    font-size: 2em !important;
+    color: #2c662d !important; /* Vert forêt */
+    border-bottom: 2px solid #a3d2a4 !important; /* Vert clair */
+    padding-bottom: 5px !important;
+}
+
+.carousel-item {
+    height: 600px;
+}
+
+/* Images */
+img {
+    border-radius: 8px !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+.img-fluid {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Lists */
+ul {
+    list-style-type: none !important;
+    padding: 0 !important;
+}
+
+ul li {
+    padding: 5px 0 !important;
+    font-size: 1.2em !important;
+    color: #3c403d !important;
+}
+
+/* Sections */
+section {
+    margin-bottom: 40px !important;
+    background-color: rgba(195, 255, 195, 1) !important;
+    padding: 20px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+}
+
+.section-title {
+    font-size: 1.8em !important;
+    color: #2c662d !important;
+    margin-bottom: 10px !important;
+}
+
+/* Grid for animals */
+.row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 20px;
+    justify-content: center;
+}
+
+.col-md-3 {
+    flex: 1 1 calc(25% - 20px) !important; /* Ajuste automatiquement les colonnes */
+    max-width: calc(25% - 20px) !important;
+    text-align: center;
+}
+
+.col-md-3 img {
+    width: 100% !important;
+    height: auto !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.col-md-3 img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.col-md-3 p {
+    margin-top: 10px !important;
+    font-size: 1.1em !important;
+    color: #3c403d !important;
+}
+
+/* Buttons (if needed in the future) */
+button {
+    background-color: #2c662d; /* Vert forêt */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1e4620; /* Vert plus foncé */
+}
+
+/* Footer or additional sections */
+footer {
+    background-color: #2c3e50; /* Couleur de fond sombre */
+    color: #ecf0f1; /* Texte clair */
+    text-align: center; /* Centre le texte */
+}
+
+footer a {
+    color: #1abc9c !important; /* Couleur des liens */
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #16a085 !important; /* Couleur au survol */
+    text-decoration: underline;
+}
+
+footer .list-inline-item {
+    margin-right: 15px; /* Espacement entre les liens */
+}
+
+footer h5 {
+    margin-bottom: 15px; /* Espacement sous les titres */
+}
+
+footer ul {
+    padding: 0; /* Retire les marges par défaut */
+    list-style: none; /* Supprime les puces */
+    display: inline-block; /* Centre la liste */
+}
+
+footer .list-inline {
+    display: inline-block; /* Centre les éléments en ligne */
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .col-md-3 {
+        flex: 1 1 calc(50% - 20px) !important; /* Passe à deux colonnes sur petit écran */
+        max-width: calc(50% - 20px) !important;
+    }
+
+    h1, h2 {
+        font-size: 1.8em;
+    }
+
+    ul li {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .col-md-3 {
+        flex: 1 1 100% !important; /* Passe à une colonne sur très petit écran */
+        max-width: 100% !important;
+    }
+
+    h1, h2 {
+        font-size: 1.5em;
+    }
+
+    ul li {
+        font-size: 0.9em;
+    }
+}
