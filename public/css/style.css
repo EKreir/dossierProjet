@@ -113,6 +113,26 @@ section {
     color: #3c403d !important;
 }
 
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #6c757d;
+}
+
+
 /* Buttons (if needed in the future) */
 button {
     background-color: #2c662d; /* Vert forêt */

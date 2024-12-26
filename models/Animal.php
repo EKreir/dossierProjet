@@ -108,4 +108,18 @@ class Animal {
             return [];
         }
     }
+
+    // Récupérer les animaux par habitat
+    public function getAnimalsByHabitat($habitatId) {
+        try {
+            $query = "SELECT * FROM animals WHERE habitat_id = :habitat_id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindParam(':habitat_id', $habitatId);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            echo "Erreur lors de la récupération des animaux par habitat : " . $e->getMessage();
+            return [];
+        }
+    }
 }

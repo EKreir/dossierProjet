@@ -269,10 +269,14 @@ $router->add('/home', function() {
 // Route pour la page des services
 $router->add('/services', function() {
     $publicController = new PublicController();
-    $publicController->services(); // Appel de la méthode services
+    $publicController->services();
 });
 
-
+// Route pour la page des habitats
+$router->add('/habitats', function() {
+    $publicController = new PublicController();
+    $publicController->showHabitats();
+});
 
 // Dispatcher la requête
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
