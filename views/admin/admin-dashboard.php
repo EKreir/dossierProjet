@@ -26,6 +26,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/dashboard">Comptes renuds</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin-animal-count">Consultation</a>
+                </li>
             </ul>
         </div>
     </nav>

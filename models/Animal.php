@@ -2,10 +2,13 @@
 
 class Animal {
     private $conn;
+    private $collection;
 
     public function __construct() {
         $database = new Database();
+        $mongo = new MongoDBConnection();
         $this->conn = $database->getConnection();
+        $this->collection = $mongo->getCollection('animal_views');
     }
 
     // Créer un nouvel animal
@@ -67,7 +70,12 @@ class Animal {
         LEFT JOIN habitats h ON a.habitat_id = h.id";
             $stmt = $this->conn->prepare($query);
             $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $animals = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($animals as &$animal) {
+                $animal['views_count'] = $this->getAnimalViews($animal['id']);
+            }
+            return $animals;
         } catch (Exception $e) {
             echo "Erreur lors de la récupération des animaux : " . $e->getMessage();
             return [];
@@ -130,4 +138,19 @@ class Animal {
             return [];
         }
     }
+
+    public function getAnimalViews($animalId) {
+        $viewData = $this->collection->findOne(['animal_id' => (int)$animalId]);
+
+        return $viewData ? $viewData['views_count'] : 0;
+    }
+
+    // Méthode pour récupérer tous les animaux de MongoDB
+    public function getAnimalMongo() {
+        // Effectuer une requête pour récupérer tous les animaux de la collection
+        $animals = $this->collection->find()->toArray();  // Utilisation de MongoDB pour récupérer les données
+
+        return $animals;  // Retourner les animaux
+    }
+
 }

@@ -127,11 +127,40 @@ class AnimalController {
         return;
     }
 
+    // Ajouter ou mettre à jour le compteur de consultations dans MongoDB
+    $mongo = new MongoDBConnection();
+    $collection = $mongo->getCollection('animal_views');
+
+    // Chercher si un document existe déjà pour cet animal
+    $existingView = $collection->findOne(['animal_id' => (int)$id]);
+
+    if ($existingView) {
+        // Si le document existe, mettre à jour le compteur
+        $collection->updateOne(
+            ['animal_id' => (int)$id],
+            ['$inc' => ['views_count' => 1]]
+        );
+    } else {
+        // Si le document n'existe pas, créer un nouveau document
+        $collection->insertOne([
+            'animal_id' => (int)$id,
+            'views_count' => 1
+        ]);
+    }
+
     $reportModel = new ReportModel();
     $report = $reportModel->getLastReportByAnimalId($id);
 
     // Passe les données à la vue
     require_once __DIR__ . '/../views/animal_details.php';
 }
+
+    // Afficher tous les animaux avec leur nombre de consultations
+    public function showAnimalCount() {
+        // Récupérer tous les animaux avec leur nombre de vues
+        $animals = $this->animalModel->getAllAnimals();
+        // Passer les données à la vue
+        require_once __DIR__ . '/../views/admin/animal_count.php';
+    }
 
 }

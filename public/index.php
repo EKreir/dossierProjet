@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../config/Database.php';
+require_once __DIR__ . '/../config/MongoDB.php';
 require_once __DIR__ . '/../controllers/UserController.php';
 require_once __DIR__ . '/../controllers/OpeningHoursController.php';
 require_once __DIR__ . '/../controllers/HabitatController.php';
@@ -34,20 +35,23 @@ $adminPages = [
     '/list-habitats',
     '/list-animals',
     '/list-services',
-    'dashboard'
+    '/dashboard'
 ];
 
 // Définir les pages qui nécessitent un rôle "employee"
 $employeePages = [
     '/employee-dashboard',
     '/edit-services',
+    '/manage-reviews',
+    '/add-feeding'
 ];
 
 // Définir les pages qui nécessitent un rôle "veterinary"
 $vetoPages = [
     '/veto-dashboard',
+    '/add-habitat-review',
     '/animal-consumptions',
-    '/animal-reports',
+    '/animal-reports'
 ];
 
 // Vérification du rôle admin pour les pages sensibles
@@ -192,6 +196,12 @@ $router->add('/edit-animal', function() {
 $router->add('/delete-animal', function() {
     $animalController = new AnimalController();
     $animalController->deleteAnimal();
+});
+
+// Route pour afficher tous les animaux et leurs vues
+$router->add('/admin-animal-count', function() {
+    $animalController = new AnimalController();
+    $animalController->showAnimalCount();  // Afficher la page des animaux avec leur nombre de consultations
 });
 
 // Routes pour les services
