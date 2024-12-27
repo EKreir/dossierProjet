@@ -3,12 +3,12 @@
 <?php include __DIR__ . '/../template/navbar.php'; ?>
 
 <div class="container mt-4">
-    <h1>Espace Admin</h1>
-    <p>Bienvenue dans l'espace d'administration. Vous pouvez consulter les rapports des animaux et les avis sur les habitats laissés par les vétérinaires.</p>
 
     <!-- Section des rapports des animaux -->
     <section id="animal-reports" class="my-4">
-        <h2>Rapports Animaux</h2>
+        <h1>Rapports Animaux</h1>
+        <a href="?sort=animal_reports_asc" class="btn btn-primary btn-sm">Trier par date (Ascendant)</a>
+        <a href="?sort=animal_reports_desc" class="btn btn-primary btn-sm">Trier par date (Descendant)</a>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -37,7 +37,9 @@
 
     <!-- Section des avis sur les habitats -->
     <section id="habitat-reviews" class="my-4">
-        <h2>Avis Habitats</h2>
+        <h1>Avis Habitats</h1>
+        <a href="?sort=habitat_reviews_asc" class="btn btn-primary btn-sm">Trier par date (Ascendant)</a>
+        <a href="?sort=habitat_reviews_desc" class="btn btn-primary btn-sm">Trier par date (Descendant)</a>
         <table class="table table-striped">
             <thead>
                 <tr>

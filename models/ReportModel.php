@@ -65,4 +65,34 @@ class ReportModel {
     }
 }
 
+    public function getReportsSortedByDate($sort) {
+        $order = 'ASC';
+        if ($sort === 'animal_reports_desc') {
+            $order = 'DESC';
+        } elseif ($sort === 'animal_reports_asc') {
+            $order = 'ASC';
+        }
+
+        $query = "
+            SELECT 
+                animals.name AS animal_name, 
+                animal_reports.report_date, 
+                animal_reports.health_status, 
+                animal_reports.food_type, 
+                animal_reports.food_quantity_kg,
+                users.username AS vet_name
+            FROM animal_reports
+            INNER JOIN animals ON animal_reports.animal_id = animals.id
+            INNER JOIN users ON animal_reports.user_id = users.id
+            WHERE users.role = 'veterinarian'
+            ORDER BY animal_reports.report_date $order
+        ";
+
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
+
 }

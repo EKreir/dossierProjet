@@ -10,13 +10,13 @@ class AdminController {
     }
 
     public function dashboard() {
-        // Récupérer les rapports des animaux
-        $animalReports = $this->reportModel->getAllReports();
+        $sort = isset($_GET['sort']) ? $_GET['sort'] : null;
 
-        // Récupérer les avis sur les habitats
-        $habitatReviews = $this->habitatReviewModel->getAllReviews();
+        $animalReports = $this->reportModel->getReportsSortedByDate($sort);
 
-        // Charger la vue
+        $habitatReviews = $this->habitatReviewModel->getReviewsSortedByDate($sort);
+
         require_once __DIR__ . '/../views/admin/dashboard.php';
     }
+
 }
