@@ -45,7 +45,9 @@ $employeePages = [
     '/employee-dashboard',
     '/edit-services',
     '/manage-reviews',
-    '/add-feeding'
+    '/add-feeding',
+    '/manage-mails',
+    '/reply'
 ];
 
 // Définir les pages qui nécessitent un rôle "veterinary"

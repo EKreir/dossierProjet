@@ -19,8 +19,13 @@ class PublicController {
     $habitatModel = new Habitat();
     $animalModel = new Animal();
     $habitats = $habitatModel->getAllHabitats();
-    foreach ($habitats as &$habitat) {
-        $habitat['animals'] = $animalModel->getAnimalsByHabitat($habitat['id']);
+
+    foreach ($habitats as $key => $habitat) {
+        // Récupérer les animaux pour cet habitat
+        $animals = $animalModel->getAnimalsByHabitat($habitat['id']);
+
+        // Associer les animaux à cet habitat dans un tableau temporaire
+        $habitats[$key]['animals'] = $animals;
     }
     require_once __DIR__ . '/../views/habitats.php';
     }

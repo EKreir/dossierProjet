@@ -71,16 +71,17 @@ class Habitat {
 
     // Récupérer tous les habitats
     public function getAllHabitats() {
-        try {
-            $query = "SELECT * FROM habitats";
-            $stmt = $this->conn->prepare($query);
-            $stmt->execute();
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (Exception $e) {
-            echo "Erreur lors de la récupération des habitats : " . $e->getMessage();
-            return [];
-        }
+    try {
+        $query = "SELECT * FROM habitats";  // Ajoutez DISTINCT pour éviter les doublons
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        echo "Erreur lors de la récupération des habitats : " . $e->getMessage();
+        return [];
     }
+}
+
 
     // Supprimer un habitat
     public function deleteHabitat($id) {
