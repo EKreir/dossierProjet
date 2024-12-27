@@ -1,5 +1,32 @@
 <?php include __DIR__ . '/../template/header.php'; ?>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/veto-dashboard">Espace Vétérinaire</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/animal-consumptions">Consommation animale</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/animal-reports">Rapports animaux</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/add-habitat-review">Avis des habitats</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-danger" href="/logout">Se déconnecter</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <div class="container mt-4">
     <h1>Donner un avis sur un habitat</h1>
 
@@ -34,7 +61,5 @@
         <button type="submit" class="btn btn-primary mt-3">Enregistrer l'avis</button>
     </form>
 </div>
-
-<a href="/veto-dashboard" class="btn btn-secondary mt-4">Retour au tableau de bord</a>
 
 <?php include __DIR__ . '/../template/footer.php'; ?>

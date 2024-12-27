@@ -31,8 +31,6 @@
 <!-- Contenu principal de l'espace Employé -->
 <div class="container mt-4">
     <h1>Bienvenue dans votre espace Employé</h1>
-    <p>Dans cet espace,</p>
-    
     <h3>Actions disponibles</h3>
     <ul>
         <li><a href="/animal-consumptions">Consommation animale</a></li>
