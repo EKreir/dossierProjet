@@ -49,16 +49,16 @@ Avant de pouvoir installer et exécuter ce projet, vous devez avoir les outils s
 1. Clonez ce dépôt sur votre machine locale :
 
     ```bash
-    git clone
+    git clone https://github.com/EKreir/dossierProjet.git
     ```
 
 2. Entrez dans le répertoire du projet :
 
     ```bash
-    cd
+    cd dossierProjet
     ```
 
-3. Installez les dépendances PHP via Composer :
+3. Installez les dépendances PHP via Composer : (si besoin reagrder la documentation Compser)
 
     ```bash
     composer install
