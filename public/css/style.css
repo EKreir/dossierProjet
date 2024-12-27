@@ -138,8 +138,24 @@ section {
     background-color: rgba(195, 255, 195, 1) !important;
 }
 
+.animal-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px; /* Espacement entre les colonnes */
+}
 
-/* Buttons (if needed in the future) */
+.animal-details .animal-image {
+    flex: 1; /* Largeur automatique, mais jamais plus grande que nécessaire */
+    max-width: 40%; /* Limite à 40% de la largeur de l'écran */
+}
+
+.animal-details .animal-info {
+    flex: 2; /* Prend plus de place que l'image */
+}
+
+
+/* Buttons */
 button {
     background-color: #2c662d; /* Vert forêt */
     color: white;

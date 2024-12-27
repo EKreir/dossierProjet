@@ -3,25 +3,35 @@
 
 <div class="container mt-5">
     <?php if ($animal): ?>
+        <!-- Nom de l'animal centré -->
         <h1 class="text-center my-4"><?= htmlspecialchars($animal['name']) ?></h1>
-        <div class="row">
-            <div class="col-md-6">
-                <img src="<?= htmlspecialchars($animal['image']) ?>" alt="Image de <?= htmlspecialchars($animal['name']) ?>" class="img-fluid rounded">
+        
+        <!-- Section détails de l'animal -->
+        <div class="animal-details">
+            <!-- Image de l'animal -->
+            <div class="animal-image text-center">
+                <img src="<?= htmlspecialchars($animal['image']) ?>" 
+                     alt="Image de <?= htmlspecialchars($animal['name']) ?>" 
+                     class="img-fluid rounded shadow">
             </div>
-            <div class="col-md-6">
-                <h2>Informations</h2>
-                <ul>
-                    <li><strong>Race :</strong> <?= htmlspecialchars($animal['breed']) ?></li>
-                    <li><strong>Habitat :</strong> <?= htmlspecialchars($animal['habitat_name']) ?></li>
+
+            <!-- Infos et rapport -->
+            <div class="animal-info">
+                <!-- Informations -->
+                <h2 class="text-primary">Informations</h2>
+                <ul class="list-group mb-4">
+                    <li class="list-group-item"><strong>Race :</strong> <?= htmlspecialchars($animal['breed']) ?></li>
+                    <li class="list-group-item"><strong>Habitat :</strong> <?= htmlspecialchars($animal['habitat_name']) ?></li>
                 </ul>
 
+                <!-- Rapport vétérinaire -->
                 <?php if ($report): ?>
-                    <h2>Rapport du vétérinaire</h2>
-                    <ul>
-                        <li><strong>État de santé :</strong> <?= htmlspecialchars($report['health_status']) ?></li>
-                        <li><strong>Nourriture :</strong> <?= htmlspecialchars($report['food_type']) ?></li>
-                        <li><strong>Grammage :</strong> <?= htmlspecialchars($report['food_quantity_kg']) ?> kg</li>
-                        <li><strong>Date de passage :</strong> <?= htmlspecialchars($report['report_date']) ?></li>
+                    <h2 class="text-primary">Rapport du vétérinaire</h2>
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>État de santé :</strong> <?= htmlspecialchars($report['health_status']) ?></li>
+                        <li class="list-group-item"><strong>Nourriture :</strong> <?= htmlspecialchars($report['food_type']) ?></li>
+                        <li class="list-group-item"><strong>Grammage :</strong> <?= htmlspecialchars($report['food_quantity_kg']) ?> kg</li>
+                        <li class="list-group-item"><strong>Date de passage :</strong> <?= htmlspecialchars($report['report_date']) ?></li>
                     </ul>
                 <?php else: ?>
                     <p class="text-muted">Aucun rapport vétérinaire disponible pour cet animal.</p>
@@ -29,7 +39,7 @@
             </div>
         </div>
     <?php else: ?>
-        <p class="text-danger">Animal introuvable.</p>
+        <p class="text-danger text-center">Animal introuvable.</p>
     <?php endif; ?>
 </div>
 
