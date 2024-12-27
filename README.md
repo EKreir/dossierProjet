@@ -93,7 +93,3 @@ Ce projet utilise les technologies suivantes :
 Ce projet a été développé dans le cadre d'un contrôle (ECF) et restructuré avec l'architecture **MVC** pour garantir une organisation claire et efficace du code. Il permet de gérer l'ensemble des fonctionnalités d'un zoo, allant de la gestion des employés et vétérinaires à la gestion des animaux, habitats et services. Le côté visiteur offre une interface simple et intuitive pour explorer le zoo et interagir avec les services, tandis que le côté administrateur et employé permet une gestion approfondie des opérations.
 
 ---
-
-## Licence
-
-Ce projet est sous la licence MIT - voir le fichier [LICENSE](LICENSE) pour plus de détails.
