@@ -30,4 +30,11 @@ class ReviewModel {
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
+
+    public function getApprovedReviews() {
+        $query = "SELECT * FROM reviews WHERE status = 'approved' ORDER BY created_at DESC";
+        $stmt = $this->db->query($query);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }

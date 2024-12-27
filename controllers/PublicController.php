@@ -4,6 +4,8 @@ class PublicController {
     public function home() {
         $openingHoursController = new OpeningHoursController();
         $hours = $openingHoursController->getPublicHours();
+        $reviewModel = new ReviewModel();
+        $approvedReviews = $reviewModel->getApprovedReviews();
         require_once __DIR__ . '/../views/home.php';
     }
 

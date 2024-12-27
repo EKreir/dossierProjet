@@ -92,6 +92,22 @@ se passe bien, de même, toute la nourriture donnée est calculée afin d’avoi
     </section>
 
     <section class="my-5">
+    <h2>Avis des visiteurs</h2>
+    <?php if (!empty($approvedReviews)): ?>
+        <ul>
+            <?php foreach ($approvedReviews as $review): ?>
+                <li>
+                    <strong><?= htmlspecialchars($review['pseudo']) ?></strong> (<?= $review['rating'] ?>/5)
+                    <p><?= nl2br(htmlspecialchars($review['comment'])) ?></p>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else: ?>
+        <p>Aucun avis validé pour le moment.</p>
+    <?php endif; ?>
+</section>
+
+    <section class="my-5">
     <h2>Horaires d'ouverture</h2>
     <ul>
         <?php
