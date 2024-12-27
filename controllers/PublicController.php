@@ -34,4 +34,9 @@ class PublicController {
         require_once __DIR__ . '/../views/submit.php';
     }
 
+    // Afficher les mentions légales
+    public function legalNotice() {
+        require_once __DIR__ . '/../views/legacy.php';
+    }
+
 }

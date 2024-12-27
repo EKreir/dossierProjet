@@ -360,6 +360,12 @@ $router->add('/contact', function() {
     $contactController->submitContact();
 });
 
+// Route pour la page mention legale
+$router->add('/legacy', function() {
+    $publicController = new PublicController();
+    $publicController->legalNotice();
+});
+
 
 // Dispatcher la requête
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);

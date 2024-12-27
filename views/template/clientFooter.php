@@ -25,7 +25,7 @@
         <!-- Mentions légales -->
         <div class="mb-3">
             <h5>Informations</h5>
-            <a href="/mentions-legales" class="text-white">Mentions légales</a>
+            <a href="/legacy" class="text-white">Mentions légales</a>
             <a class="text-white" href="/login">Connexion</a>
         </div>
     </div>
