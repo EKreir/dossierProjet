@@ -17,6 +17,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/manage-reviews">Gérer les avis</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/manage-mails">Gérer les mails</a>
+                </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">

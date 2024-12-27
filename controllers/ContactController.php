@@ -68,4 +68,53 @@ class ContactController {
             return false;
         }
     }
+
+    // Afficher la page de réponse
+    public function reply($id) {
+        $mail = $this->contactModel->getMailById($id);
+
+        if ($mail) {
+            require_once __DIR__ . '/../views/employe/reply.php';
+        } else {
+            header('Location: /manage-mails?error=mail_not_found');
+            exit;
+        }
+    }
+
+    // Envoyer la réponse
+    public function sendReply() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $email = trim($_POST['email']);
+            $subject = trim($_POST['subject']);
+            $message = trim($_POST['message']);
+
+            if (!empty($email) && !empty($subject) && !empty($message)) {
+                // Utiliser SMTP pour envoyer l'email
+                $headers = "From: support@votreprojet.com\r\n";
+                $headers .= "Reply-To: support@votreprojet.com\r\n";
+                $headers .= "Content-Type: text/plain; charset=UTF-8";
+
+                $success = mail($email, $subject, $message, $headers);
+
+                if ($success) {
+                    $successMessage = "La réponse a été envoyée avec succès.";
+                } else {
+                    $errorMessage = "Une erreur est survenue lors de l'envoi de l'email.";
+                }
+            } else {
+                $errorMessage = "Tous les champs sont obligatoires.";
+            }
+
+            require_once __DIR__ . '/../views/employe/reply.php';
+        } else {
+            header('Location: /manage-mails');
+            exit;
+        }
+    }
+
+    public function manageMails() {
+        $mails = $this->contactModel->getAllMails(); // Récupérer tous les mails
+        require_once __DIR__ . '/../views/employe/manage-mails.php'; // Charger la vue
+    }
+
 }

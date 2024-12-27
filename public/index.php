@@ -255,6 +255,11 @@ $router->add('/animal-consumptions', function() {
     $feedingController->listConsumptions();
 });
 
+$router->add('/manage-mails', function() {
+    $contactController = new ContactController();
+    $contactController->manageMails();
+});
+
 $router->add('/animal-reports', function() {
     $reportController = new ReportController();
     $reportController->listReports();
