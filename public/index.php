@@ -80,10 +80,9 @@ $router = new Router();
 
 // Ajouter les routes
 
-// Accueil (page d'accueil)
+// Page par défaut
 $router->add('/', function() {
-    echo "<h1>Bienvenue sur l'application Zoo !</h1>";
-    echo '<a href="/login">Se connecter</a><br>';
+    require_once __DIR__ . '/../views/home.php'; // Page d'accueil
 });
 
 // Route de connexion

@@ -114,8 +114,10 @@ section {
 }
 
 .card {
-    border-radius: 10px;
+    border-radius: 10px !important;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(195, 255, 195, 1) !important;
+
 }
 
 .card-img-top {
@@ -130,6 +132,10 @@ section {
 
 .card-text {
     color: #6c757d;
+}
+
+.list-group-item:last-child {
+    background-color: rgba(195, 255, 195, 1) !important;
 }
 
 
