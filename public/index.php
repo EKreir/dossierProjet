@@ -13,6 +13,8 @@ require_once __DIR__ . '/../controllers/ReportController.php';
 require_once __DIR__ . '/../controllers/AdminController.php';
 require_once __DIR__ . '/../controllers/PublicController.php';
 require_once __DIR__ . '/../controllers/ReviewController.php';
+require_once __DIR__ . '/../controllers/ContactController.php';
+require_once __DIR__ . '/../models/Contact.php';
 require_once __DIR__ . '/../models/OpeningHours.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../models/Habitat.php';
@@ -88,7 +90,8 @@ $router = new Router();
 
 // Page par défaut
 $router->add('/', function() {
-    require_once __DIR__ . '/../views/home.php'; // Page d'accueil
+    $publicController = new PublicController();
+    $publicController->home();
 });
 
 // Route de connexion
@@ -127,7 +130,8 @@ $router->add('/veto-dashboard', function() {
 
 // Routes utilisateurs
 $router->add('/create-user', function() {
-    require_once __DIR__ . '/../views/admin/create_user.php';
+    $userController = new UserController();
+    $userController->createUser();
 });
 
 $router->add('/create-user-submit', function() {
@@ -330,6 +334,12 @@ $router->add('/manage-reviews', function() {
 $router->add('/update-review', function() {
     $reviewController = new ReviewController();
     $reviewController->updateReview();
+});
+
+// Route pour la page contact
+$router->add('/contact', function() {
+    $contactController = new ContactController();
+    $contactController->submitContact();
 });
 
 

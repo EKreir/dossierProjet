@@ -1,7 +1,5 @@
 <?php
 
-require_once __DIR__ . '/../models/ReviewModel.php';
-
 class ReviewController {
     private $reviewModel;
 
@@ -17,14 +15,22 @@ class ReviewController {
 
             if (!empty($pseudo) && !empty($rating) && !empty($comment)) {
                 $success = $this->reviewModel->addReview($pseudo, $rating, $comment);
+
                 if ($success) {
-                    header('Location: /notice?success=true');
-                    exit;
+                    $successMessage = "Votre avis a été soumis avec succès.";
+                } else {
+                    $errorMessage = "Une erreur est survenue lors de la soumission de votre avis.";
                 }
+            } else {
+                $errorMessage = "Tous les champs sont obligatoires.";
             }
-            header('Location: /notice?error=true');
-            exit;
+
+            require_once __DIR__ . '/../views/submit.php';
+            return;
         }
+
+        // Si la requête n'est pas POST, afficher simplement la page de soumission
+        require_once __DIR__ . '/../views/submit.php';
     }
 
     public function manageReviews() {

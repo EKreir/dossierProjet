@@ -22,7 +22,7 @@
                     <a class="nav-link" href="/notice">Avis</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#hours">Contact</a>
+                    <a class="nav-link" href="/contact">Contact</a>
                 </li>
             </ul>
         </div>

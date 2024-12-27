@@ -3,18 +3,27 @@
 
 <div class="container mt-5">
     <h1 class="text-center">Laissez un avis</h1>
+
+    <!-- Affichage des messages d'erreur et succès -->
+    <?php if (isset($successMessage)): ?>
+        <div class="alert alert-success mt-4" role="alert">
+            <?= htmlspecialchars($successMessage) ?>
+        </div>
+    <?php elseif (isset($errorMessage)): ?>
+        <div class="alert alert-danger mt-4" role="alert">
+            <?= htmlspecialchars($errorMessage) ?>
+        </div>
+    <?php endif; ?>
+    
     <form id="review-form" method="POST" action="/submit-review" class="mt-4">
-        <!-- Pseudo -->
         <div class="mb-3">
             <label for="pseudo" class="form-label">Pseudo</label>
             <input type="text" class="form-control" id="pseudo" name="pseudo" required placeholder="Votre pseudo">
         </div>
 
-        <!-- Notation -->
         <div class="mb-3">
             <label class="form-label">Notation</label>
             <div id="rating" class="d-flex align-items-center">
-                <!-- Étoiles -->
                 <input type="radio" id="star5" name="rating" value="5" required>
                 <label for="star5" class="star">★</label>
                 
@@ -32,13 +41,11 @@
             </div>
         </div>
 
-        <!-- Commentaire -->
         <div class="mb-3">
             <label for="comment" class="form-label">Commentaire</label>
             <textarea class="form-control" id="comment" name="comment" rows="5" required placeholder="Écrivez votre commentaire ici..."></textarea>
         </div>
 
-        <!-- Bouton Soumettre -->
         <button type="submit" class="btn btn-primary">Soumettre l'avis</button>
     </form>
 </div>
