@@ -260,6 +260,17 @@ $router->add('/manage-mails', function() {
     $contactController->manageMails();
 });
 
+$router->add('/reply', function() {
+    $id = $_GET['id'] ?? null;
+    $contactController = new ContactController();
+    $contactController->reply($id);
+});
+
+$router->add('/send-reply', function() {
+    $contactController = new ContactController();
+    $contactController->sendReply();
+});
+
 $router->add('/animal-reports', function() {
     $reportController = new ReportController();
     $reportController->listReports();

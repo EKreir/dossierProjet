@@ -71,46 +71,55 @@ class ContactController {
 
     // Afficher la page de réponse
     public function reply($id) {
-        $mail = $this->contactModel->getMailById($id);
+    $mail = $this->contactModel->getMailById($id); // Récupérer le mail via l'ID
 
-        if ($mail) {
-            require_once __DIR__ . '/../views/employe/reply.php';
-        } else {
-            header('Location: /manage-mails?error=mail_not_found');
-            exit;
-        }
+    if (!$mail) {
+        header('Location: /manage-mails?error=mail_not_found');
+        exit;
     }
+
+    require_once __DIR__ . '/../views/employe/reply.php'; // Charger la vue de réponse
+}
 
     // Envoyer la réponse
     public function sendReply() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id = (int)$_POST['id'];
             $email = trim($_POST['email']);
             $subject = trim($_POST['subject']);
             $message = trim($_POST['message']);
 
             if (!empty($email) && !empty($subject) && !empty($message)) {
-                // Utiliser SMTP pour envoyer l'email
-                $headers = "From: support@votreprojet.com\r\n";
-                $headers .= "Reply-To: support@votreprojet.com\r\n";
-                $headers .= "Content-Type: text/plain; charset=UTF-8";
+                // Envoyer l'email avec PHPMailer
+                $mail = new PHPMailer(true);
+                try {
+                    $mail->isSMTP();
+                    $mail->Host = 'localhost';
+                    $mail->Port = 1025;
+                    $mail->SMTPAuth = false;
 
-                $success = mail($email, $subject, $message, $headers);
+                    $mail->setFrom('support@votreprojet.com', 'Support');
+                    $mail->addAddress($email);
+                    $mail->isHTML(true);
+                    $mail->Subject = $subject;
+                    $mail->Body = $message;
 
-                if ($success) {
-                    $successMessage = "La réponse a été envoyée avec succès.";
-                } else {
-                    $errorMessage = "Une erreur est survenue lors de l'envoi de l'email.";
+                    $mail->send();
+
+                    header('Location: /manage-mails?success=envoi réussi');
+                    exit;
+                } catch (Exception $e) {
+                    error_log("Erreur lors de l'envoi : " . $mail->ErrorInfo);
+                    header('Location: /reply?id=' . $id . '&error=mail_failed');
+                    exit;
                 }
             } else {
-                $errorMessage = "Tous les champs sont obligatoires.";
+                header('Location: /reply?id=' . $id . '&error=fields_required');
+                exit;
             }
-
-            require_once __DIR__ . '/../views/employe/reply.php';
-        } else {
-            header('Location: /manage-mails');
-            exit;
         }
     }
+
 
     public function manageMails() {
         $mails = $this->contactModel->getAllMails(); // Récupérer tous les mails

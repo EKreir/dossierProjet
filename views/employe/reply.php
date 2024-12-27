@@ -16,10 +16,11 @@
 
     <!-- Formulaire de réponse -->
     <form method="POST" action="/send-reply" class="mt-4">
+        <input type="hidden" name="id" value="<?= htmlspecialchars($mail['id']) ?>">
         <!-- Affichage du sujet -->
         <div class="mb-3">
             <label for="subject" class="form-label">Sujet</label>
-            <input type="text" class="form-control" id="subject" name="subject" value="<?= htmlspecialchars($mail['subject']) ?>" readonly>
+            <input type="text" class="form-control" id="subject" name="subject" value="<?= htmlspecialchars($mail['title']) ?>" readonly>
         </div>
 
         <!-- Email du destinataire -->
