@@ -44,4 +44,25 @@ class ReportModel {
 
     return $stmt->execute();
 }
+
+    public function getLastReportByAnimalId($animalId) {
+    try {
+        $query = "
+            SELECT
+                report_date, health_status, food_type, food_quantity_kg
+            FROM animal_reports
+            WHERE animal_id = :animal_id
+            ORDER BY report_date DESC
+            LIMIT 1
+        ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':animal_id', $animalId);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        echo "Erreur lors de la récupération du rapport vétérinaire : " . $e->getMessage();
+        return null;
+    }
+}
+
 }

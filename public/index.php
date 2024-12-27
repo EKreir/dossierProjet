@@ -277,6 +277,14 @@ $router->add('/habitats', function() {
     $publicController->showHabitats();
 });
 
+// Route pour afficher les détails d'un animal
+
+$router->add('/animal', function() {
+    $animalController = new AnimalController();
+    $animalController->showAnimalDetails();
+});
+
+
 // Dispatcher la requête
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $router->dispatch($requestPath);

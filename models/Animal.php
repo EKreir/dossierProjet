@@ -84,17 +84,25 @@ class Animal {
 
     // Récupérer un animal par ID
     public function getAnimalById($id) {
-        try {
-            $query = "SELECT * FROM animals WHERE id = :id";
-            $stmt = $this->conn->prepare($query);
-            $stmt->bindParam(':id', $id);
-            $stmt->execute();
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        } catch (Exception $e) {
-            echo "Erreur lors de la récupération de l'animal : " . $e->getMessage();
-            return null;
-        }
+    try {
+        $query = "
+            SELECT 
+                a.*, 
+                h.name AS habitat_name
+            FROM animals a
+            LEFT JOIN habitats h ON a.habitat_id = h.id
+            WHERE a.id = :id
+        ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    } catch (Exception $e) {
+        echo "Erreur lors de la récupération de l'animal : " . $e->getMessage();
+        return null;
     }
+}
+
 
     // Récupérer tous les habitats (pour associer un habitat à un animal)
     public function getHabitatOptions() {

@@ -111,4 +111,27 @@ class AnimalController {
             echo "Une erreur est survenue lors de la suppression de l'animal.";
         }
     }
+
+    public function showAnimalDetails() {
+    $id = $_GET['id'] ?? null;
+
+    if (!$id) {
+        echo "Identifiant de l'animal manquant.";
+        return;
+    }
+
+    $animal = $this->animalModel->getAnimalById($id);
+
+    if (!$animal) {
+        echo "Animal introuvable.";
+        return;
+    }
+
+    $reportModel = new ReportModel();
+    $report = $reportModel->getLastReportByAnimalId($id);
+
+    // Passe les données à la vue
+    require_once __DIR__ . '/../views/animal_details.php';
+}
+
 }
