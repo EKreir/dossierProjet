@@ -16,7 +16,7 @@
                     <a class="nav-link" href="/add-feeding">Consommation quotidienne</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/"></a>
+                    <a class="nav-link" href="/manage-reviews">Aivs des visiteurs</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -37,7 +37,7 @@
     <ul>
         <li><a href="/edit-services">Modifier les services</a></li>
         <li><a href="/add-feeding">Consommation quotidienne</a></li>
-        <li><a href="/"></a></li>
+        <li><a href="/manage-reviews">Avis des visiteurs</a></li>
     </ul>
 </div>
 

@@ -21,6 +21,10 @@ class PublicController {
         $habitat['animals'] = $animalModel->getAnimalsByHabitat($habitat['id']);
     }
     require_once __DIR__ . '/../views/habitats.php';
-}
+    }
+
+    public function notice() {
+        require_once __DIR__ . '/../views/submit.php';
+    }
 
 }

@@ -1,5 +1,32 @@
 <?php include __DIR__ . '/../template/header.php'; ?>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/employee-dashboard">Espace Employé</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/edit-services">Modifier les services</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/add-feeding">Consommation quotidienne</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/manage-reviews">Gérer les avis</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link btn btn-outline-danger" href="/logout">Se déconnecter</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
 <h1 class="text-center my-4">Enregistrer l'alimentation d'un animal</h1>
 
 <?php if (isset($errorMessage)): ?>
@@ -47,7 +74,6 @@
         </div>
 
         <button type="submit" class="btn btn-primary">Enregistrer</button>
-        <a href="/employee-dashboard" class="btn btn-secondary mt-4">Retour</a>
     </form>
 </div>
 

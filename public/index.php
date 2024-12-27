@@ -11,6 +11,7 @@ require_once __DIR__ . '/../controllers/FeedingController.php';
 require_once __DIR__ . '/../controllers/ReportController.php';
 require_once __DIR__ . '/../controllers/AdminController.php';
 require_once __DIR__ . '/../controllers/PublicController.php';
+require_once __DIR__ . '/../controllers/ReviewController.php';
 require_once __DIR__ . '/../models/OpeningHours.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../models/Habitat.php';
@@ -19,6 +20,7 @@ require_once __DIR__ . '/../models/Service.php';
 require_once __DIR__ . '/../models/FeedingModel.php';
 require_once __DIR__ . '/../models/ReportModel.php';
 require_once __DIR__ . '/../models/HabitatReview.php';
+require_once __DIR__ . '/../models/ReviewModel.php';
 require_once __DIR__ . '/../config/Router.php';
 
 // Démarrer la session
@@ -259,6 +261,19 @@ $router->add('/dashboard', function() {
     $adminController->dashboard();
 });
 
+// Gestion des avis par les employés
+$router->add('/manage-reviews', function() {
+    $reviewController = new ReviewController();
+    $reviewController->manageReviews();
+});
+
+// Mise à jour du statut d'un avis
+$router->add('/update-review', function() {
+    $reviewController = new ReviewController();
+    $reviewController->updateReview();
+});
+
+
 // Route pour la page d'accueil publique
 $router->add('/home', function() {
     $publicController = new PublicController();
@@ -278,10 +293,33 @@ $router->add('/habitats', function() {
 });
 
 // Route pour afficher les détails d'un animal
-
 $router->add('/animal', function() {
     $animalController = new AnimalController();
     $animalController->showAnimalDetails();
+});
+
+// Route pour la page d'avis
+$router->add('/notice', function() {
+    $publicController = new PublicController();
+    $publicController->notice();
+});
+
+// Soumettre un avis
+$router->add('/submit-review', function() {
+    $reviewController = new ReviewController();
+    $reviewController->submitReview();
+});
+
+// Gestion des avis par les employés
+$router->add('/manage-reviews', function() {
+    $reviewController = new ReviewController();
+    $reviewController->manageReviews();
+});
+
+// Mise à jour du statut d'un avis
+$router->add('/update-review', function() {
+    $reviewController = new ReviewController();
+    $reviewController->updateReview();
 });
 
 

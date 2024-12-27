@@ -19,7 +19,7 @@
                     <a class="nav-link" href="/services">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#animals">Avis</a>
+                    <a class="nav-link" href="/notice">Avis</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#hours">Contact</a>
