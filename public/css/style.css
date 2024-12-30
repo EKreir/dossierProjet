@@ -142,8 +142,8 @@ section {
 }
 
 .animals {
-    text-decoration: none !important;
-    color: green !important;
+    text-decoration-line: none !important;
+    color: darkolivegreen !important;
 }
 
 .animal-details {
