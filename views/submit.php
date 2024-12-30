@@ -46,7 +46,7 @@
             <textarea class="form-control" id="comment" name="comment" rows="5" required placeholder="Écrivez votre commentaire ici..."></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Soumettre l'avis</button>
+        <button type="submit" class="btn btn-success">Soumettre l'avis</button>
     </form>
 </div>
 

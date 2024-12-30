@@ -124,9 +124,7 @@ class HabitatController {
     }
 
     // Ajouter un avis sur un habitat
-    public function addReview() {
-    session_start();
-    
+    public function addReview() {    
     // Vérifiez si un utilisateur est connecté
     if (!isset($_SESSION['user_id'])) {
         header('Location: /login');

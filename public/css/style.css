@@ -141,6 +141,11 @@ section {
     background-color: rgba(195, 255, 195, 1) !important;
 }
 
+.animals {
+    text-decoration: none !important;
+    color: green !important;
+}
+
 .animal-details {
     display: flex;
     flex-wrap: wrap;
@@ -160,6 +165,9 @@ section {
 /* Radio etoiles */
 #rating {
         gap: 55px;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
     }
     input {
         display: none;

@@ -17,7 +17,7 @@
                     <ul class="list-group list-group-flush">
                         <?php foreach ($habitat['animals'] as $animal): ?>
                             <li class="list-group-item">
-                                <a href="/animal?id=<?= htmlspecialchars($animal['id']) ?>"><strong><?= htmlspecialchars($animal['name']) ?></strong> (<?= htmlspecialchars($animal['breed']) ?>)
+                                <a class="animals" href="/animal?id=<?= htmlspecialchars($animal['id']) ?>"><strong><?= htmlspecialchars($animal['name']) ?></strong> (<?= htmlspecialchars($animal['breed']) ?>)
                                 </a>
                             </li>
                         <?php endforeach; ?>

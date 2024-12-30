@@ -30,7 +30,7 @@
             <textarea class="form-control" id="message" name="message" rows="5" required placeholder="Votre message ici..."></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary">Envoyer</button>
+        <button type="submit" class="btn btn-success">Envoyer</button>
     </form>
 </div>
 
