@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
     <div class="container-fluid">
-        <a class="navbar-brand" href="">Arcadia
+        <a class="navbar-brand" href="/home">Arcadia
             <img src="/images/logozoo.jpg" alt="logo" class="navbar-logo">
         </a>
 

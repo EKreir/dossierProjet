@@ -159,7 +159,10 @@ section {
 
 /* Radio etoiles */
 #rating {
-        gap: 5px;
+        gap: 55px;
+    }
+    input {
+        display: none;
     }
     .star {
         font-size: 1.5rem;
