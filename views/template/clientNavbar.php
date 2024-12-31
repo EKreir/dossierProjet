@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-success sticky-top">
-    <div class="container-fluid">
+    <div class="container-sm">
         <a class="navbar-brand" href="/home">Arcadia
         </a>
 
