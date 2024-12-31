@@ -39,4 +39,8 @@ class PublicController {
         require_once __DIR__ . '/../views/legacy.php';
     }
 
+    public function policy() {
+        require_once __DIR__ . '/../views/policy.php';
+    }
+
 }

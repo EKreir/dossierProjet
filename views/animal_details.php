@@ -18,7 +18,7 @@
             <!-- Infos et rapport -->
             <div class="animal-info">
                 <!-- Informations -->
-                <h2 class="text-primary">Informations</h2>
+                <h2 class="text-success">Informations</h2>
                 <ul class="list-group mb-4">
                     <li class="list-group-item"><strong>Race :</strong> <?= htmlspecialchars($animal['breed']) ?></li>
                     <li class="list-group-item"><strong>Habitat :</strong> <?= htmlspecialchars($animal['habitat_name']) ?></li>
@@ -26,7 +26,7 @@
 
                 <!-- Rapport vétérinaire -->
                 <?php if ($report): ?>
-                    <h2 class="text-primary">Rapport du vétérinaire</h2>
+                    <h2 class="text-success">Rapport du vétérinaire</h2>
                     <ul class="list-group">
                         <li class="list-group-item"><strong>État de santé :</strong> <?= htmlspecialchars($report['health_status']) ?></li>
                         <li class="list-group-item"><strong>Nourriture :</strong> <?= htmlspecialchars($report['food_type']) ?></li>
@@ -42,5 +42,10 @@
         <p class="text-danger text-center">Animal introuvable.</p>
     <?php endif; ?>
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <?php include 'template/clientFooter.php'; ?>

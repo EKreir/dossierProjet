@@ -366,6 +366,11 @@ $router->add('/legacy', function() {
     $publicController->legalNotice();
 });
 
+// Route pour la page politique de confidentialité
+$router->add('/policy', function() {
+    $publicController = new PublicController();
+    $publicController->policy();
+});
 
 // Dispatcher la requête
 $requestPath = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
