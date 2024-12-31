@@ -73,19 +73,19 @@ se passe bien, de même, toute la nourriture donnée est calculée afin d’avoi
         <h2>Nos animaux</h2>
         <div class="row">
             <div class="col-md-3">
-                <img src="/images/image.jpeg" class="img-fluid" alt="Lion">
+                <img src="/images/image.jpeg" class="img-fluid" alt="">
                 <p>Lion</p>
             </div>
             <div class="col-md-3">
-                <img src="/images/zebre.jpg" class="img-fluid" alt="Zèbre">
+                <img src="/images/zebre.jpg" class="img-fluid" alt="">
                 <p>Zèbre</p>
             </div>
             <div class="col-md-3">
-                <img src="/images/1309518-Crocodile.jpg" class="img-fluid" alt="Alligator">
+                <img src="/images/1309518-Crocodile.jpg" class="img-fluid" alt="">
                 <p>Alligator</p>
             </div>
             <div class="col-md-3">
-                <img src="/images/toco-toucan-ramphastos-toco.jpg" class="img-fluid" alt="Toucan">
+                <img src="/images/toco-toucan-ramphastos-toco.jpg" class="img-fluid" alt="">
                 <p>Toucan</p>
             </div>
         </div>

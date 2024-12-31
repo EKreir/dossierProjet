@@ -5,14 +5,14 @@
     <?php if ($animal): ?>
         <!-- Nom de l'animal centré -->
         <h1 class="text-center my-4"><?= htmlspecialchars($animal['name']) ?></h1>
-        
+
         <!-- Section détails de l'animal -->
         <div class="animal-details">
             <!-- Image de l'animal -->
             <div class="animal-image text-center">
-                <img src="<?= htmlspecialchars($animal['image']) ?>" 
-                     alt="Image de <?= htmlspecialchars($animal['name']) ?>" 
-                     class="img-fluid rounded shadow">
+                <img src="<?= htmlspecialchars($animal['image']) ?>"
+                    alt="animal <?= htmlspecialchars($animal['name']) ?>"
+                    class="img-fluid rounded shadow">
             </div>
 
             <!-- Infos et rapport -->
