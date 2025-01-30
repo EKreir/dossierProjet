@@ -58,7 +58,7 @@ Avant de pouvoir installer et exécuter ce projet, vous devez avoir les outils s
     cd dossierProjet
     ```
 
-3. Installez les dépendances PHP via Composer : (si besoin reagrder la documentation Compser)
+3. Installez les dépendances PHP via Composer : (si besoin reagrder la documentation Composer)
 
     ```bash
     composer install
